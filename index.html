@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Rover Control</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 500px;
+            margin-bottom: 20px;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .toggle-menu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(255, 255, 255, 0.2);
+            height: 100%;
+            width: 250px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+        .toggle-menu.active {
+            display: block;
+        }
+        .menu-button {
+            cursor: pointer;
+        }
+        .about-section {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="your_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="container text-center">
+            <h1>Welcome to Smart Rover Control</h1>
+            <p>Control your rover remotely and explore new terrains with ease!</p>
+            <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+            <div class="about-section mt-5">
+                <h2>About Us</h2>
+                <p>Our Smart Rover project aims to integrate IoT technologies for efficient remote control of robotic systems. We provide a seamless user experience, allowing you to navigate and manage your rover from anywhere.</p>
+                <p>Our platform focuses on user-friendly interfaces, reliable performance, and real-time monitoring. Join us in transforming the way we interact with technology!</p>
+            </div>
+        </div>
+
+        <div class="menu-button position-fixed" style="top: 20px; left: 20px;">
+            <button class="btn btn-primary" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="toggle-menu" id="menu">
+            <h4>Menu</h4>
+            <ul class="list-unstyled">
+                <li><a href="/remote_operations" class="text-white">Remote Operations</a></li>
+                <li><a href="/esp_cam_settings" class="text-white">ESP CAM Settings</a></li>
+                <li><a href="/get_help" class="text-white">Get Help</a></li>
+                <li><a href="/contact" class="text-white">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
